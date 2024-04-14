@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PRADA</title>
+  <link rel="icon"
+    href="https://cdn.freelogovectors.net/wp-content/uploads/2023/08/prada-logo-01-freelogovectors.net_.png" />
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body class="bi">
+  <div class="container">
+    <div class="form-container sign-up active">
+      <h2>User Registration </h2>
+      <form id="signUpForm" action="/signup" method="post">
+        <p>{{status}}</p>
+        <div class="input-group">
+          <label for="signUpUsername">👤 Name</label>
+          <input type="text" id="signUpUsername" name="name" placeholder="Enter your FullName" required>
+        </div>
+        <div class="input-group">
+          <label for="signUpEmail">📧 Email</label>
+          <input type="email" id="signUpEmail" name="email" placeholder="Enter your email" required>
+        </div>
+        <div class="input-group">
+          <label for="signUpPassword">🔒 Password</label>
+          <input type="password" id="signUpPassword" name="password" placeholder="Enter your password" required>
+        </div>
+        <div class="input-group">
+            <label for="signUpPassword">🔒Confirm Password</label>
+            <input type="password" id="signUpPassword" name="cpassword" placeholder="Enter your password" required>
+          </div>
+        <button type="submit" class="submit">Sign Up</button>
+        <script>
+          
+        </script>
+      </form>
+    </div>
+    <div class="form-container sign-in">
+      <h2>🔑 Sign In </h2>
+      <form id="signInForm" action="/login" method="post">
+        <div class="input-group">
+          <label for="signInEmail">📧 Email</label>
+          <input type="email" id="signInEmail" placeholder="Enter your email" name="email" required>
+        </div>
+        <div class="input-group">
+          <label for="signInPassword">🔒 Password</label>
+          <input type="password" id="signInPassword" name="password" placeholder="Enter your password" required>
+          <label for=""><a href="/forget">Forgot Password?</a></label>
+        </div>
+        <button type="submit" class="submit">Sign In</button>
+      </form>
+    </div>
+    <div class="switch-buttons">
+      <button class="switch-btn active" data-target="sign-up">Sign up</button>
+      <button class="switch-btn" data-target="sign-in">Sign In</button>
+    </div>
+  </div>
+
+
+  <script src="static/script.js"></script>
+</body>
+</html>

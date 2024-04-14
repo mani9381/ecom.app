@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Women Product Details</title>
+  <link rel="icon"
+    href="https://cdn.freelogovectors.net/wp-content/uploads/2023/08/prada-logo-01-freelogovectors.net_.png" />
+  <link rel="stylesheet" src="/static/product.css" />
+  <style>
+    .products {
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: row;
+      gap: 40px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="products">
+ 
+      {% for i in wdata %}
+      <div class="product">
+        <img src="{{i['imguri']}}" height="200" width="200" alt="Product 1">
+        <h2>{{i['productName']}}</h2>
+        <div class="ratings">
+          &#9733;&#9733;&#9733;&#9733;&#9734;
+        </div>
+        <p>{{i['price']}}</p>
+        <p>{{i['description']}}</p>
+        <a href="/reviews/{{i['_id']}}">Reviews</a>&nbsp;&nbsp;<a href="/analytics/{{i['_id']}}">Analytics</a>
+      </div>
+      {% endfor %}
+
+  </div>
+  </div>
+
+</body>
+
+</html>

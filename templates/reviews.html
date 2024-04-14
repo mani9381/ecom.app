@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Reviews</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+    }
+    .review {
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+    .review p {
+      margin: 5px 0;
+    }
+    #newReviewForm {
+      margin-top: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 10px;
+    }
+    #newReviewForm input[type="text"],
+    #newReviewForm textarea,
+    #newReviewForm input[type="number"] {
+      width: 100%;
+      padding: 8px;
+      margin: 5px 0;
+      box-sizing: border-box;
+    }
+    #newReviewForm input[type="submit"] {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+    }
+    #newReviewForm input[type="submit"]:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <h1>Product Reviews</h1>
+  <div id="reviews">
+    {% for i in revs %}
+    <div class="review">
+        
+        <p><strong>Name:</strong>{{i['name']}}</p>
+        <p><strong>Rating:</strong> {{i['rating']}}</p>
+        <p><strong>Comment:</strong>{{i['comment']}}</p>
+       
+    </div>
+    {% endfor %}
+  </div>
+
+  <div id="newReviewForm">
+    <h2>Add New Review</h2>
+    <form id="addReviewForm" action="/reviews/{{item}}" method="post">
+      <!-- <input type="text" value="{{item}}" hidden readonly> -->
+      <input type="text" id="name" placeholder="Your Name" value="{{name}}" name="name" required readonly hidden>
+      <input type="number" id="rating" placeholder="Rating (1-5)" min="1" max="5" name="rating" required>
+      <textarea id="comment" placeholder="Your Review" rows="4" name="comment" required></textarea>
+      <input type="submit" value="Submit Review">
+    </form>
+  </div>
+</body>
+</html>

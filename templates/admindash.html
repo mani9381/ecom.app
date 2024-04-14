@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            width: 80%;
+            margin: 20px auto;
+        }
+
+        h2 {
+            margin-bottom: 10px;
+        }
+
+        form {
+            margin-bottom: 20px;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        textarea,
+        input[type="file"] {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div style="display: flex;justify-content: space-around;">
+            <h2>Add Product</h2>
+            <form action="/logout">
+                <input type="submit" value="logout" >
+            </form>
+
+        </div>
+        <form action="/addproduct" method="post" enctype="multipart/form-data">
+            <select name="category" required>
+                <option value=""  disabled selected>Select Category</option>
+                <option value="beauty">Beauty Product</option>
+                <option value="mens">Men's Clothing</option>
+                <option value="womens">Women's Clothing</option>
+            </select>
+            <input type="text" name="product_name" placeholder="Product Name" required>
+            <input type="number" name="price" placeholder="Price" required>
+            <textarea name="description" placeholder="Description" rows="4" required></textarea>
+            <input type="file" name="image" accept="image/*" id="img" required>
+            <div id="parent">
+                <p id="title"></p>
+                <img  alt="still phot not uploades" id="img-u" height="200" width="200">
+            </div>
+            <input type="submit" value="Add Product">
+        </form>
+        
+        <script>
+            document.getElementById('img').addEventListener("change", (e) => {
+                let file = e.target.files[0]
+                console.log(file)
+                if (file) {
+                    document.getElementById('title').innerText = "Uploaded Image"
+                    let url = URL.createObjectURL(file)
+                    console.log(url)
+                    let img = document.getElementById('img-u')
+                    img.src = url;
+                    
+                }
+            })
+        </script>
+    </div>
+</body>
+
+</html>
